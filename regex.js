@@ -1,7 +1,7 @@
 const form = document.getElementById('form')
 
 
-
+//PARTIE REGEX
 function checkForm(event) {
 
     event.preventDefault()
@@ -48,3 +48,35 @@ doit contenir au moins {1} majuscule , au moins {5} minuscules et au moins {1} c
 [0-9] = /
 
 */
+
+
+//PARTIE CHUCK NORRIS
+
+
+//on va choper la zone ou on afficheras les blagues
+const jokeZone = document.getElementById('jokeZone');
+//on chope l'api
+const chuckAPI = 'https://api.chucknorris.io/jokes/random'
+
+//on  crée la fonction qui va nous fetch l'api 
+function chuckRefresh() {
+
+    fetch(chuckAPI)
+        .then((res) => res.json())
+        .then(result => {
+            //on assigne la blague récupérée à la div
+            jokeZone.innerText = result.value
+            //log du résultat pour check 
+            console.log(result);
+
+
+
+
+
+        })
+
+
+}
+
+
+chuckRefresh();
